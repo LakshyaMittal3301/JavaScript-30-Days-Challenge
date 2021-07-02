@@ -11,6 +11,9 @@
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
+    // Make a BreakPoint : 
+    // Select element in WebTools
+    // Add Breakpoint on modification
     function makeGreen() {
       const p = document.querySelector('p');
       p.style.color = '#BADA55';
@@ -19,27 +22,69 @@
 
     // Regular
 
+    console.log("Regular")
+
     // Interpolated
+
+    console.log("This is %s", "Interpolated")
 
     // Styled
 
+    console.log("%c Styled Text", "color: red; font-size:40px ")
+
     // warning!
+
+    console.warn("Damn!! This is A warning")
 
     // Error :|
 
+    console.error("Oh shit!! This is a Error")
+    
     // Info
 
-    // Testing
+    console.info("FunFact: Learning FunFacts don't actually make you smarter")
+
+    // Testing/Assert
+    const p = document.querySelector("p");
+    console.assert(p.tagName === "P", "This is not a Paragraph")
+    console.assert(p.tagName === "IMG", "This is not an IMG Element")
 
     // clearing
 
+    if(false) console.clear()
+
     // Viewing DOM Elements
+
+    console.log(p)
+    console.dir(p)
 
     // Grouping together
 
+    dogs.forEach((dog) => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} years old`)
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+      console.groupEnd(`${dog.name}`)
+    })
+
     // counting
 
+    console.count("Check")
+    console.count("Check")
+    console.count("Check")
+    console.count("Check")
+    console.count("Check")
+
     // timing
+
+    console.time("Fetching Data")
+    fetch("https://api.github.com/users/wesbos")
+    .then((response) => response.json())
+    .then((data)=> {
+      console.timeEnd("Fetching Data")
+      console.log(data)
+    })
 
   </script>
 </body>
